@@ -17,6 +17,9 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
+// setup static path
+app.use(express.static('dist'))
+
 // routes
 app.get('/', (request, response) => {
     response.render('login')
