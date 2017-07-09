@@ -1,0 +1,20 @@
+.btn {
+  border: 0;
+  background: #fff;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.btn--primary {
+  background: $brand-green;
+  color: #fff;
+  transition: background 0.5s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $brand-green-hover;
+  }
+}
