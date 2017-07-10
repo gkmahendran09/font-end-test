@@ -60,4 +60,5 @@ typings/
 .env
 
 # dist folder
-dist
+dist/*.js
+dist/*.css
