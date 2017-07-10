@@ -1,0 +1,23 @@
+// Form Default
+.form {
+
+}
+
+.form__element {
+  width: 100%;
+  margin-bottom: 15px;
+
+  input {
+    padding: 15px 10px;
+    font-size: 16px;
+  }
+}
+
+// Form type - vertical
+.form--vertical {
+  .form__element {
+    input {
+      width: 100%;
+    }
+  }
+}
