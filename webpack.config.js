@@ -13,6 +13,11 @@ module.exports = {
             { // sass / scss loader for webpack
                 test: /\.(sass|scss)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+            },
+            {
+                // *.vue files
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     },
@@ -22,4 +27,10 @@ module.exports = {
             allChunks: true,
         }),
     ],
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
+    }
+
 };
