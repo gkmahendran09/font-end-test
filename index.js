@@ -8,11 +8,11 @@ const port = 3000
 // express app
 const app = express()
 
-// setup static path
-app.use(express.static('dist'))
-
 // Use history api fallback
 app.use(history());
+
+// setup static path
+app.use(express.static('dist'))
 
 // listen on port
 app.listen(port)
