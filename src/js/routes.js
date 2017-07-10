@@ -1,5 +1,5 @@
-import Login from './Components/Login.vue';
-import ReviewArea from './Components/ReviewArea.vue';
+import Login from './Pages/Login.vue';
+import ReviewArea from './Pages/ReviewArea.vue';
 
 
 const routes = [
