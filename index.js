@@ -15,4 +15,4 @@ app.use(history());
 app.use(express.static('dist'))
 
 // listen on port
-app.listen(port)
+app.listen(process.env.PORT || port)
