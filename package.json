@@ -8,7 +8,7 @@
     "start": "node index.js",
     "build": "./node_modules/.bin/webpack --config webpack.config.js",
     "watch": "./node_modules/.bin/webpack --config webpack.config.js --watch",
-    "postinstall": "./node_modules/.bin/webpack --config webpack.config.js && node index.js"
+    "postinstall": "node index.js"
   },
   "author": "",
   "license": "ISC",
