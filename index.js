@@ -107,24 +107,24 @@ app.use(passport.session());
 // Routes
 // --------------------------------------------------------------
 
-app.post('/login',
-    passport.authenticate('local'),
-    function(req, res) {
-        // If this function gets called, authentication was successful.
-        // `req.user` contains the authenticated user.
-        //res.redirect('/users/' + req.user.username);
-        //res.send(req.query)
-        let url = '/review/';
-        if(req.query.redirect != '' && req.query.redirect != '/' && req.query.redirect)
-            url = req.query.redirect;
-
-        res.redirect(url);
-    });
+app.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return res.redirect('/?error=1'); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            let url = '/review/';
+            if(req.query.redirect != '' && req.query.redirect != '/' && req.query.redirect)
+                url = req.query.redirect;
+            res.redirect(url);
+        });
+    })(req, res, next);
+});
 
 
 app.post('/logout', function(req, res){
     req.logout();
-    res.redirect('/');
+    res.redirect('/?success=1');
 });
 
 app.post('/auth', function(req, res) {

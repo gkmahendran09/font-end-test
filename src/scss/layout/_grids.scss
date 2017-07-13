@@ -56,6 +56,7 @@ $pad: 15px;
 .col-12 { width: 100%; }
 
 // Col left offsets
+[class*='col-offset-'] { padding-right: 0px; }
 .col-offset-1 { margin-left: 8.33%; }
 .col-offset-2 { margin-left: 16.66%; }
 .col-offset-3 { margin-left: 25%; }
