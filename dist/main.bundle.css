@@ -282,6 +282,9 @@ a {
 .col-12 {
   width: 100%; }
 
+[class*='col-offset-'] {
+  padding-right: 0px; }
+
 .col-offset-1 {
   margin-left: 8.33%; }
 
@@ -323,6 +326,8 @@ a {
   height: 70px;
   padding: 15px;
   margin-bottom: 35px; }
+  .header form {
+    float: right; }
 
 .header__logo {
   position: absolute;
@@ -333,6 +338,11 @@ a {
 
 .header__login-btn {
   float: right; }
+
+.header__user {
+  font-size: 16px;
+  margin-right: 15px;
+  line-height: 38px; }
 
 .footer {
   padding: 15px 0;
