@@ -12,7 +12,7 @@
                     <div class="message message--error" v-if="errorMessage.is">{{errorMessage.message}}</div>
                 </div>
                 <div class="col-6 col-offset-3">
-                    <form method="post" class="form form--vertical" action="login" @submit="onSubmit" :onsubmit="`return ${isValidForm}`">
+                    <form method="post" class="form form--vertical" :action="actionURL" @submit="onSubmit" :onsubmit="`return ${isValidForm}`">
                         <div class="form__element">
                             <input type="text" placeholder="Email" v-model="email" name="username">
                             <span class="error" v-show="!isValidEmail && touched">Please enter a valid email</span>
@@ -51,16 +51,23 @@
             }
         },
         computed: {
-          isValidEmail() {
+            actionURL() {
+                let url = "login";
+                if(this.$route.query.redirect != '' && this.$route.query.redirect !='/' && this.$route.query.redirect)
+                    url += `?redirect=${this.$route.query.redirect}`;
+                return url;
+            },
+
+            isValidEmail() {
               return this.email !== '' && /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)
-          },
+            },
 
-          isValidPassword() {
-            return this.password !== '' && this.password.length > 3
-          },
+            isValidPassword() {
+               return this.password !== '' && this.password.length > 3
+            },
 
-          isValidForm() {
-              return this.isValidEmail && this.isValidPassword
+            isValidForm() {
+                return this.isValidEmail && this.isValidPassword
             }
         },
         methods: {
