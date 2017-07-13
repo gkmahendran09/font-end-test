@@ -1,6 +1,6 @@
 <template>
     <div>
-        <hf-header></hf-header>
+        <hf-header is-logged-in="true"></hf-header>
         <h1>Review Area</h1>
         <hf-footer></hf-footer>
     </div>
