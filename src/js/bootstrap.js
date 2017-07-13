@@ -13,6 +13,11 @@ window.VueRouter = VueRouter;
 // Tell Vue to use Vue router
 Vue.use(VueRouter);
 
+// Import axios
+import axios from 'axios';
+window.axios = axios;
+
+
 // Register Global Components
 
 // Header Component
