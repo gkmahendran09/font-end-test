@@ -5,3 +5,12 @@
         <hf-footer></hf-footer>
     </div>
 </template>
+<script>
+    import auth from "../auth.js";
+    export default {
+        mixins: [ auth ],
+        created() {
+            this.checkLoggedIn();
+        }
+    }
+</script>

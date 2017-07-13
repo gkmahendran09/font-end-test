@@ -110,7 +110,7 @@ app.use(passport.session());
 app.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) { return res.redirect('/?error=1'); }
+        if (!user) { return res.redirect(`/?error=1&redirect=${req.query.redirect}`); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             let url = '/review/';
