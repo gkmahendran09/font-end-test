@@ -17,8 +17,10 @@ let auth = {
         checkLoggedIn() {
             axios.post('/auth')
                 .then((res) => {
-                    if(!res.data)
+                    if(!res.data.state)
                         this.redirect()
+                    else
+                        events.fire('user-obj-created', res.data.user);
                 })
                 .catch((err) => {
 

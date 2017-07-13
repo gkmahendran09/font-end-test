@@ -134,9 +134,9 @@ app.post('/logout', function(req, res){
 
 app.post('/auth', function(req, res) {
     if(req.isAuthenticated())
-        res.send(true);
+        res.send({state: true, user: {name: req.user.name}});
     else
-        res.send(false);
+        res.send({state: false});
 })
 
 

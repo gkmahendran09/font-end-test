@@ -3,6 +3,10 @@
   height: 70px;
   padding: 15px;
   margin-bottom: 35px;
+
+  form {
+    float: right;
+  }
 }
 
 .header__logo {
@@ -16,4 +20,10 @@
 
 .header__login-btn {
   float: right;
+}
+
+.header__user {
+  font-size: 16px;
+  margin-right: 15px;
+  line-height: 38px;
 }

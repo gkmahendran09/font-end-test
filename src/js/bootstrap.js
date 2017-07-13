@@ -17,6 +17,10 @@ Vue.use(VueRouter);
 import axios from 'axios';
 window.axios = axios;
 
+// Global event object
+window.events = new Vue();
+events.fire = events.$emit;
+events.listen = events.$on;
 
 // Register Global Components
 
