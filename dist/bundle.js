@@ -15247,6 +15247,7 @@ if (false) {(function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth_js__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ReviewArea_RecipeCard_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ReviewArea_RecipeCardEmpty_vue__ = __webpack_require__(58);
 //
 //
 //
@@ -15269,19 +15270,27 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     mixins: [ __WEBPACK_IMPORTED_MODULE_0__auth_js__["a" /* default */] ],
     components: {
-            "recipe-card": __WEBPACK_IMPORTED_MODULE_1__ReviewArea_RecipeCard_vue__["a" /* default */]
+            "recipe-card": __WEBPACK_IMPORTED_MODULE_1__ReviewArea_RecipeCard_vue__["a" /* default */],
+        "recipe-card-empty": __WEBPACK_IMPORTED_MODULE_2__ReviewArea_RecipeCardEmpty_vue__["a" /* default */]
         },
     data() {
       return {
           hfToken: '',
           recipe: '',
-          isLoading: true
+          isLoading: true,
+          limit: 9,
+          onLoad: true
       }
     },
     computed: {
@@ -15294,7 +15303,7 @@ if (false) {(function () {
               }
           };
 
-          let url = 'https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=9&cuisine=italian&order=rating';
+          let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=${this.limit}&cuisine=italian&order=rating`;
             obj.url = url;
 
           return obj;
@@ -15321,6 +15330,8 @@ if (false) {(function () {
 
         // Update recipe data
         updateRecipe(res) {
+            if(this.onLoad === true)
+                this.onLoad = false;
             this.isLoading = false;
             this.recipe = res.data;
         },
@@ -15526,15 +15537,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.isLoading),
-      expression: "isLoading"
-    }]
-  }, [_vm._v("Loading....")]), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.isLoading),
-      expression: "!isLoading"
+      value: (!_vm.onLoad),
+      expression: "!onLoad"
     }],
     staticClass: "grid"
   }, [_c('div', {
@@ -15549,7 +15553,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "recipe": r
       }
     })], 1)
-  })], 2)])])]), _vm._v(" "), _c('hf-footer')], 1)
+  })], 2), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isLoading),
+      expression: "isLoading"
+    }],
+    staticClass: "grid"
+  }, _vm._l((_vm.limit), function(n) {
+    return _c('div', {
+      staticClass: "col-4"
+    }, [_c('recipe-card-empty')], 1)
+  }))])])]), _vm._v(" "), _c('hf-footer')], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -15567,6 +15583,133 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5da23a1b_node_modules_vue_loader_lib_selector_type_template_index_0_RecipeCardEmpty_vue__ = __webpack_require__(59);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(60)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5da23a1b_node_modules_vue_loader_lib_selector_type_template_index_0_RecipeCardEmpty_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/js/Pages/ReviewArea/RecipeCardEmpty.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] RecipeCardEmpty.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5da23a1b", Component.options)
+  } else {
+    hotAPI.reload("data-v-5da23a1b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "recipe recipe--empty"
+  }, [_c('div', {
+    staticClass: "recipe__img-holder"
+  }, [_c('div', {
+    staticClass: "recipe__img-bg"
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "recipe__footer"
+  }, [_c('p', {
+    staticClass: "recipe__name"
+  }), _vm._v(" "), _c('p', {
+    staticClass: "recipe__headline"
+  }), _vm._v(" "), _c('p', {
+    staticClass: "recipe__glance"
+  })])])
+}]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5da23a1b", esExports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(61);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(46)("1b8787b4", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5da23a1b\",\"scoped\":false,\"hasInlineConfig\":false}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeCardEmpty.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5da23a1b\",\"scoped\":false,\"hasInlineConfig\":false}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeCardEmpty.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(45)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.recipe--empty .recipe__footer p {\n  height: 15px !important;\n  margin: 0 0 15px 0;\n  background: #f5f5f5;\n}\n.recipe--empty .recipe__footer p:last-child {\n    margin-bottom: 0;\n}\n.recipe--empty .recipe__footer .recipe__name {\n  width: 80%;\n}\n.recipe--empty .recipe__footer .recipe__glance {\n  width: 40%;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

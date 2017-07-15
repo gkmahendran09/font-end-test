@@ -4,13 +4,17 @@
         <section class="container">
             <div class="grid">
                 <div class="col-12">
-                    <div v-show="isLoading">Loading....</div>
-                    <div class="grid" v-show="!isLoading">
+                    <div class="grid" v-show="!onLoad">
                         <div class="col-12">
                             <p class="lead">{{recipe.total}} recipes found</p>
                         </div>
                         <div class="col-4" v-for="r in recipe.items">
                             <recipe-card :recipe="r"></recipe-card>
+                        </div>
+                    </div>
+                    <div class="grid" v-show="isLoading">
+                        <div class="col-4" v-for="n in limit">
+                            <recipe-card-empty></recipe-card-empty>
                         </div>
                     </div>
                 </div>
@@ -23,16 +27,20 @@
 <script>
     import auth from "../auth.js";
     import RecipeCard from "./ReviewArea/RecipeCard.vue";
+    import RecipeCardEmpty from "./ReviewArea/RecipeCardEmpty.vue";
     export default {
         mixins: [ auth ],
         components: {
-                "recipe-card": RecipeCard
+                "recipe-card": RecipeCard,
+            "recipe-card-empty": RecipeCardEmpty
             },
         data() {
           return {
               hfToken: '',
               recipe: '',
-              isLoading: true
+              isLoading: true,
+              limit: 9,
+              onLoad: true
           }
         },
         computed: {
@@ -45,7 +53,7 @@
                   }
               };
 
-              let url = 'https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=9&cuisine=italian&order=rating';
+              let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=${this.limit}&cuisine=italian&order=rating`;
                 obj.url = url;
 
               return obj;
@@ -72,6 +80,8 @@
 
             // Update recipe data
             updateRecipe(res) {
+                if(this.onLoad === true)
+                    this.onLoad = false;
                 this.isLoading = false;
                 this.recipe = res.data;
             },
