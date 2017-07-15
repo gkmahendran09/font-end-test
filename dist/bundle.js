@@ -15501,7 +15501,20 @@ if (false) {(function () {
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    props: ['recipe']
+    props: ['recipe'],
+
+    computed: {
+        calories() {
+            let c = this.recipe.nutrition.filter((n) => {
+                return n.name == 'Calories'
+            })
+
+            if(c.length)
+                return `${c[0].amount} kcal`;
+            else
+                return '';
+        }
+    }
 });
 
 
@@ -15528,17 +15541,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "recipe__name"
   }, [_vm._v(_vm._s(_vm.recipe.name))]), _vm._v(" "), _c('p', {
     staticClass: "recipe__headline"
-  }, [_vm._v(_vm._s(_vm.recipe.headline))]), _vm._v(" "), _vm._m(0)])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_vm._v(_vm._s(_vm.recipe.headline))]), _vm._v(" "), _c('div', {
     staticClass: "recipe__glance"
   }, [_c('div', {
     staticClass: "recipe__glance__details recipe__glance__details--left"
-  }, [_c('p', [_c('span', [_vm._v("450 kcal")]), _vm._v(" "), _c('span', [_vm._v("30 minutes")])])]), _vm._v(" "), _c('div', {
+  }, [_c('p', [(_vm.calories != '') ? _c('span', [_vm._v(_vm._s(_vm.calories))]) : _vm._e(), _vm._v(" "), _c('span', [_vm._v("30 minutes")])])]), _vm._v(" "), _c('div', {
     staticClass: "recipe__glance__details recipe__glance__details--right"
-  }, [_vm._v("\n                rating\n            ")])])
-}]
+  }, [_vm._v("\n                rating\n            ")])])])])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

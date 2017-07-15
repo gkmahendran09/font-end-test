@@ -10,7 +10,7 @@
             <div class="recipe__glance">
                 <div class="recipe__glance__details recipe__glance__details--left">
                     <p>
-                        <span>450 kcal</span>
+                        <span v-if="calories != ''">{{calories}}</span>
                         <span>30 minutes</span>
                     </p>
                 </div>
@@ -24,6 +24,19 @@
 </template>
 <script>
     export default {
-        props: ['recipe']
+        props: ['recipe'],
+
+        computed: {
+            calories() {
+                let c = this.recipe.nutrition.filter((n) => {
+                    return n.name == 'Calories'
+                })
+
+                if(c.length)
+                    return `${c[0].amount} kcal`;
+                else
+                    return '';
+            }
+        }
     }
 </script>
