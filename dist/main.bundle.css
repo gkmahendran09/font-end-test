@@ -393,9 +393,35 @@ p {
 .recipe {
   background: #fff;
   border: 1px solid #efefef;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  position: relative; }
   .recipe p {
     margin: 0; }
+  .recipe .recipe__fav-holder {
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    position: absolute; }
+    .recipe .recipe__fav-holder .recipe__fav-icon {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 36px;
+      cursor: pointer; }
+      .recipe .recipe__fav-holder .recipe__fav-icon.favourite .unfav-icon {
+        display: block; }
+      .recipe .recipe__fav-holder .recipe__fav-icon.favourite .fav-icon {
+        display: none; }
+      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .unfav-icon {
+        display: block; }
+      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .fav-icon {
+        display: none; }
+      .recipe .recipe__fav-holder .recipe__fav-icon svg {
+        position: absolute; }
+        .recipe .recipe__fav-holder .recipe__fav-icon svg.fav-icon {
+          display: block; }
+        .recipe .recipe__fav-holder .recipe__fav-icon svg.unfav-icon {
+          display: none; }
   .recipe .recipe__img-holder {
     position: relative;
     overflow: hidden;
