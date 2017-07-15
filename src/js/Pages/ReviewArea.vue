@@ -5,8 +5,10 @@
             <div class="grid">
                 <div class="col-12">
                     <div v-show="isLoading">Loading....</div>
-                    <div v-show="!isLoading">
-                        <p class="lead">{{recipe.total}} recipes found</p>
+                    <div class="grid" v-show="!isLoading">
+                        <div class="col-12">
+                            <p class="lead">{{recipe.total}} recipes found</p>
+                        </div>
                         <div class="col-4" v-for="r in recipe.items">
                             <recipe-card :recipe="r"></recipe-card>
                         </div>

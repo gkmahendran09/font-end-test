@@ -23,7 +23,7 @@ $pad: 15px;
 }
 
 .grid {
-  margin: 0 0 $pad 0;
+  margin: 0 -15px $pad -15px;
 
   &:after {
     content: "";
@@ -35,10 +35,7 @@ $pad: 15px;
 
 [class*='col-'] {
   float: left;
-  padding-right: $pad;
-  .grid &:last-of-type {
-    padding-right: 0;
-  }
+  padding: 0 $pad;
 }
 
 // Col widths

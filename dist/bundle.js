@@ -15267,6 +15267,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -15433,6 +15435,27 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     props: ['recipe']
@@ -15445,9 +15468,34 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('pre', [_vm._v(_vm._s(_vm.recipe))])
+  return _c('div', {
+    staticClass: "recipe"
+  }, [_c('div', {
+    staticClass: "recipe__img-holder"
+  }, [_c('div', {
+    staticClass: "recipe__img-bg"
+  }), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": _vm.recipe.imageLink,
+      "alt": _vm.recipe.name
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "recipe__footer"
+  }, [_c('p', {
+    staticClass: "recipe__name"
+  }, [_vm._v(_vm._s(_vm.recipe.name))]), _vm._v(" "), _c('p', {
+    staticClass: "recipe__headline"
+  }, [_vm._v(_vm._s(_vm.recipe.headline))]), _vm._v(" "), _vm._m(0)])])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "recipe__glance"
+  }, [_c('div', {
+    staticClass: "recipe__glance__details recipe__glance__details--left"
+  }, [_c('p', [_c('span', [_vm._v("450 kcal")]), _vm._v(" "), _c('span', [_vm._v("30 minutes")])])]), _vm._v(" "), _c('div', {
+    staticClass: "recipe__glance__details recipe__glance__details--right"
+  }, [_vm._v("\n                rating\n            ")])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -15487,10 +15535,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       rawName: "v-show",
       value: (!_vm.isLoading),
       expression: "!isLoading"
-    }]
+    }],
+    staticClass: "grid"
+  }, [_c('div', {
+    staticClass: "col-12"
   }, [_c('p', {
     staticClass: "lead"
-  }, [_vm._v(_vm._s(_vm.recipe.total) + " recipes found")]), _vm._v(" "), _vm._l((_vm.recipe.items), function(r) {
+  }, [_vm._v(_vm._s(_vm.recipe.total) + " recipes found")])]), _vm._v(" "), _vm._l((_vm.recipe.items), function(r) {
     return _c('div', {
       staticClass: "col-4"
     }, [_c('recipe-card', {
