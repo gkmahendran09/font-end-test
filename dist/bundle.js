@@ -15512,6 +15512,12 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
     props: ['recipe'],
 
+    data() {
+      return {
+          isImgLoaded: false
+      }
+    },
+
     computed: {
         calories() {
             let c = this.recipe.nutrition.filter((n) => {
@@ -15531,6 +15537,19 @@ if (false) {(function () {
             } else
                 return '';
         }
+    },
+
+    created() {
+      let img = new Image();
+      img.addEventListener('load', () => {
+        this.isImgLoaded = true;
+      }, false);
+      img.src = this.recipe.imageLink;
+
+    },
+
+    methods: {
+
     }
 });
 
@@ -15546,8 +15565,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "recipe__img-holder"
   }, [_c('div', {
-    staticClass: "recipe__img-bg"
+    staticClass: "recipe__img-bg",
+    class: {
+      active: !_vm.isImgLoaded
+    }
   }), _vm._v(" "), _c('img', {
+    class: {
+      active: _vm.isImgLoaded
+    },
     attrs: {
       "src": _vm.recipe.imageLink,
       "alt": _vm.recipe.name

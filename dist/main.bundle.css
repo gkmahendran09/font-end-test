@@ -410,7 +410,14 @@ p {
       position: absolute;
       top: 0;
       width: 100%;
-      display: block; }
+      height: auto;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.3s; }
+      .recipe .recipe__img-holder img.active {
+        opacity: 1; }
   .recipe .recipe__footer {
     padding: 15px; }
     .recipe .recipe__footer .recipe__name {
