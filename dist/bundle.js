@@ -15253,12 +15253,79 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     mixins: [ __WEBPACK_IMPORTED_MODULE_0__auth_js__["a" /* default */] ],
+    data() {
+      return {
+          hfToken: '',
+          recipe: '',
+          isLoading: true
+      }
+    },
+    computed: {
+      searchAPIObj() {
+          let obj = {
+              method: 'get',
+              url: '',
+              headers: {
+                  'Authorization' : `Bearer ${this.hfToken}`
+              }
+          };
+
+          let url = 'https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=9&cuisine=italian&order=rating';
+            obj.url = url;
+
+          return obj;
+      }
+    },
     created() {
         this.checkLoggedIn();
+
+        axios.post('/getAPIToken')
+            .then(this.updateAPIToken)
+            .catch(this.handleError);
+    },
+    methods: {
+        // Update the API Token once we get
+        updateAPIToken(res) {
+            this.hfToken = res.data.access_token;
+            this.fetchRecipe();
+        },
+
+        // Handle any error
+        handleError(err) {
+            console.log(err)
+        },
+
+        // Update recipe data
+        updateRecipe(res) {
+            this.isLoading = false;
+            this.recipe = res.data;
+        },
+
+        // Get the Recipe from the API
+        fetchRecipe() {
+            axios(this.searchAPIObj)
+                .then(this.updateRecipe)
+                .catch(this.handleError);
+        }
+
+
     }
 });
 
@@ -15314,9 +15381,35 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "is-logged-in": "true"
     }
-  }), _vm._v(" "), _c('h1', [_vm._v("Review Area")]), _vm._v(" "), _c('hf-footer')], 1)
+  }), _vm._v(" "), _c('section', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "grid"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "col-12"
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isLoading),
+      expression: "isLoading"
+    }]
+  }, [_vm._v("Loading....")]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.isLoading),
+      expression: "!isLoading"
+    }]
+  }, [_c('h5', [_vm._v(_vm._s(_vm.recipe.total) + " recipes found")])])])])]), _vm._v(" "), _c('hf-footer')], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-12"
+  }, [_c('p', {
+    staticClass: "lead"
+  }, [_vm._v("Showing recipe ")])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

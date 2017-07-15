@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const request = require('request');
 
 
 // --------------------------------------------------------------
@@ -132,11 +133,27 @@ app.post('/logout', function(req, res){
     res.redirect('/?success=1');
 });
 
+// Check the current request is authenticated
 app.post('/auth', function(req, res) {
     if(req.isAuthenticated())
         res.send({state: true, user: {name: req.user.name}});
     else
         res.send({state: false});
+})
+
+// Get the Bearer token for hello fresh API
+app.post('/getAPIToken', function(req, res) {
+    request({
+        method: 'post',
+        url: 'https://gw.hellofresh.com/auth/token',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        formData: { "client_id": "hellofresh-dev-test", "client_secret": "g4c25EzG4#%Afeh07Bb#anbH5BQQ67bJ7!G6QZOA", "grant_type": "client_credentials", "scope": "public" }
+
+    },(err, response, body) => {
+        res.send(body);
+    });
 })
 
 
