@@ -23,7 +23,7 @@ $pad: 15px;
 }
 
 .grid {
-  margin: 0 -15px $pad -15px;
+  margin: 0 $pad 0 $pad;
 
   &:after {
     content: "";

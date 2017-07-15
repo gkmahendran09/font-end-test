@@ -11,7 +11,7 @@
                         <div class="col-4" v-for="r in recipe.items">
                             <recipe-card :recipe="r"></recipe-card>
                         </div>
-                        <div class="col-12 text-center" v-if="isLoadMore && !isLoading">
+                        <div class="col-12 text-center load-more-btn-holder" v-if="isLoadMore && !isLoading">
                             <button class="btn btn--primary" @click="loadMore">LOAD MORE</button>
                         </div>
                     </div>
@@ -129,3 +129,8 @@
         }
     }
 </script>
+<style lang="scss">
+    .load-more-btn-holder {
+        margin-bottom: 15px;
+    }
+</style>
