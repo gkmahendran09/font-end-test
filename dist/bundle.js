@@ -15274,6 +15274,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -15287,13 +15290,18 @@ if (false) {(function () {
     data() {
       return {
           hfToken: '',
-          recipe: '',
+          recipe: {},
           isLoading: true,
+          isLoadMore: false,
           limit: 9,
+          pageIndex: -1,
           onLoad: true
       }
     },
     computed: {
+        offset() {
+            return this.pageIndex * this.limit;
+        },
       searchAPIObj() {
           let obj = {
               method: 'get',
@@ -15303,7 +15311,7 @@ if (false) {(function () {
               }
           };
 
-          let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&limit=${this.limit}&cuisine=italian&order=rating`;
+          let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&offset=${this.offset}&limit=${this.limit}&cuisine=italian&order=rating`;
             obj.url = url;
 
           return obj;
@@ -15330,19 +15338,43 @@ if (false) {(function () {
 
         // Update recipe data
         updateRecipe(res) {
-            if(this.onLoad === true)
+            // Check if the request is first time
+            if(this.onLoad === true) {
+                // turn off the flag
                 this.onLoad = false;
+
+                // Update the recipe list
+                Object.assign(this.recipe, res.data);
+            } else { // we have recipe
+                this.recipe.items.push.apply(this.recipe.items, res.data.items);
+            }
+
+            // turn off loading flag
             this.isLoading = false;
-            this.recipe = res.data;
+
+            // Check for Load More
+            var totalResultsLoaded = this.limit * this.pageIndex;
+            if((this.recipe.total - totalResultsLoaded) < parseInt(this.limit))
+                this.isLoadMore = false;
+            else
+                this.isLoadMore = true;
         },
 
         // Get the Recipe from the API
         fetchRecipe() {
+            // Increment page index by 1 for the next request
+            this.pageIndex++;
+
             axios(this.searchAPIObj)
                 .then(this.updateRecipe)
                 .catch(this.handleError);
-        }
+        },
 
+        // On Click Load more button
+        loadMore() {
+            this.isLoading = true;
+            this.fetchRecipe();
+        }
 
     }
 });
@@ -15553,7 +15585,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "recipe": r
       }
     })], 1)
-  })], 2), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.isLoadMore && !_vm.isLoading) ? _c('div', {
+    staticClass: "col-12 text-center"
+  }, [_c('button', {
+    staticClass: "btn btn--primary",
+    on: {
+      "click": _vm.loadMore
+    }
+  }, [_vm._v("LOAD MORE")])]) : _vm._e()], 2), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",

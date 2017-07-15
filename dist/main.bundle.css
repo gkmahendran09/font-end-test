@@ -225,6 +225,9 @@ p {
   display: table;
   clear: both; }
 
+.text-center {
+  text-align: center; }
+
 .container {
   padding: 0 15px;
   margin: 0 auto;
