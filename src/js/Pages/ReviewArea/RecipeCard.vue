@@ -10,8 +10,8 @@
             <div class="recipe__glance">
                 <div class="recipe__glance__details recipe__glance__details--left">
                     <p>
-                        <span v-if="calories != ''">{{calories}}</span>
-                        <span>30 minutes</span>
+                        <span class="calories" v-if="calories != ''">{{calories}}</span>
+                        <span v-if="prepTime != ''">{{prepTime}}</span>
                     </p>
                 </div>
                 <div class="recipe__glance__details recipe__glance__details--right">
@@ -23,6 +23,9 @@
     </div>
 </template>
 <script>
+    // Import moment
+    import moment from 'moment';
+
     export default {
         props: ['recipe'],
 
@@ -35,6 +38,14 @@
                 if(c.length)
                     return `${c[0].amount} kcal`;
                 else
+                    return '';
+            },
+
+            prepTime() {
+                let pt = this.recipe.prepTime;
+                if(pt !== null) {
+                    return 	`${moment.duration(pt).minutes()} minutes`;
+                } else
                     return '';
             }
         }

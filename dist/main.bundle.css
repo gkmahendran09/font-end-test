@@ -415,7 +415,7 @@ p {
     padding: 15px; }
     .recipe .recipe__footer .recipe__name {
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 20px;
       font-weight: 600;
       font-style: normal;
       white-space: nowrap;
@@ -423,7 +423,7 @@ p {
       text-overflow: ellipsis;
       height: 20px; }
     .recipe .recipe__footer .recipe__headline {
-      line-height: 1.43;
+      line-height: 20px;
       height: 20px;
       font-size: 14px;
       white-space: nowrap;
@@ -438,6 +438,8 @@ p {
         width: 50%; }
         .recipe .recipe__footer .recipe__glance .recipe__glance__details.recipe__glance__details--left {
           float: left; }
+          .recipe .recipe__footer .recipe__glance .recipe__glance__details.recipe__glance__details--left .calories {
+            margin-right: 15px; }
         .recipe .recipe__footer .recipe__glance .recipe__glance__details.recipe__glance__details--right {
           float: right;
           text-align: right; }
