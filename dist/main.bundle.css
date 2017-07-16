@@ -552,9 +552,9 @@ p {
         display: block; }
       .recipe .recipe__fav-holder .recipe__fav-icon.favourite .fav-icon {
         display: none; }
-      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .unfav-icon {
+      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .unfav-icon, .recipe .recipe__fav-holder .recipe__fav-icon:focus:not(.favourite) .unfav-icon, .recipe .recipe__fav-holder .recipe__fav-icon:active:not(.favourite) .unfav-icon {
         display: block; }
-      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .fav-icon {
+      .recipe .recipe__fav-holder .recipe__fav-icon:hover:not(.favourite) .fav-icon, .recipe .recipe__fav-holder .recipe__fav-icon:focus:not(.favourite) .fav-icon, .recipe .recipe__fav-holder .recipe__fav-icon:active:not(.favourite) .fav-icon {
         display: none; }
       .recipe .recipe__fav-holder .recipe__fav-icon svg {
         position: absolute; }

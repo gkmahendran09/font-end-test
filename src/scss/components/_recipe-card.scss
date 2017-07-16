@@ -34,7 +34,9 @@
 
             }
 
-            &:hover:not(.favourite) {
+            &:hover:not(.favourite),
+            &:focus:not(.favourite),
+            &:active:not(.favourite) {
                 .unfav-icon {
                     display: block;
                 }
