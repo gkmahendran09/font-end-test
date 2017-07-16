@@ -110,6 +110,7 @@
 
         methods: {
             markAsFavourite() {
+                alert('fav test')
                 // TODO::Make an ajax requst to the server
                 this.isFavourite = !this.isFavourite;
 

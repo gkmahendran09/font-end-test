@@ -31360,6 +31360,7 @@ exports.push([module.i, "\n.modal--user-rating {\n  width: 320px;\n}\n.modal--us
 
     methods: {
         markAsFavourite() {
+            alert('fav test')
             // TODO::Make an ajax requst to the server
             this.isFavourite = !this.isFavourite;
 
