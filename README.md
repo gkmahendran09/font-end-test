@@ -1,6 +1,62 @@
 HelloFresh Dev Team - Front-end Developer Test
 =============================================
 
+Hi,
+
+I've just completed the test, kindly review it.
+
+Solution Details
+---------
+- This app is developed using nodejs as backend.
+- Uses passport local strategy
+- Users list is hard coded 
+- SASS(SCSS) as CSS preprocessor
+- Uses Webpack for managing SASS and ES6
+- Uses Vue.js for developing it as SPA
+- Uses HelloFresh API to fetch the recipe details
+- Demo app hosted in Heroku
+ 
+
+Installation
+------------
+
+1. `npm install` to install node packages
+2. `npm run build` to build JS and CSS files or `npm run watch` for development
+
+Running the app
+---------------
+1. `npm start` to start the app
+
+Demo
+-----
+https://hello-fresh-test.herokuapp.com/
+
+Local users:
+
+john@example.com / test123
+
+passport@example.com / test1234
+
+
+Screenshots
+------------
+Login Page
+
+![](https://hello-fresh-test.herokuapp.com/screenshots/login.png)
+
+Review Page
+
+![](https://hello-fresh-test.herokuapp.com/screenshots/review-screen.png)
+
+User Rating Modal
+![](https://hello-fresh-test.herokuapp.com/screenshots/user-rating-screen.png)
+
+
+
+
+Original content begins from here
+----------------------------------
+
 Hello and thanks for taking the time to try out the Front-end Developer test.
 
 The goal of this test is to assert your coding, UI, HTML and CSS skills (to some degree).
