@@ -538,3 +538,23 @@ body.modal--open {
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5); }
+
+.hf-rating {
+  display: inline-block; }
+  .hf-rating .hf-star-holder {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    float: left; }
+    .hf-rating .hf-star-holder.hf-star-holder--big {
+      width: 40px;
+      height: 40px; }
+    .hf-rating .hf-star-holder .star {
+      position: absolute;
+      left: 0;
+      top: 0; }
+      .hf-rating .hf-star-holder .star.empty-star {
+        z-index: 1; }
+      .hf-rating .hf-star-holder .star.filled-star {
+        z-index: 2;
+        clip-path: inset(0px 0px 0px 0px); }

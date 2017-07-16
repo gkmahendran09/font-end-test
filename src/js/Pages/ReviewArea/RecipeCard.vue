@@ -37,12 +37,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="help-text">Help us improve our product</div>
-                    <div class="user-rating-holder">rating</div>
+                    <div class="user-rating-holder">
+                        <user-rating @rated="updateUserRating"></user-rating>
+                    </div>
                     <textarea placeholder="Write a comment… (optional)" class="user-comment-field"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button class="btn" @click="isRatingModalVisible = false">Cancel</button>
-                    <button class="btn btn--primary" @click="saveUserRating">Save</button>
+                    <button class="btn btn--primary" @click="saveUserRating" :disabled="userRating==''">Save</button>
                 </div>
             </div>
         </hf-modal>
@@ -55,18 +57,23 @@
     // Import Rating Component
     import Rating from '../../Components/Rating.vue';
 
+    // Import User Rating Component
+    import UserRating from '../../Components/UserRating.vue';
+
     export default {
         props: ['recipe'],
 
         components: {
-          'rating': Rating
+          'rating': Rating,
+          'user-rating': UserRating
         },
 
         data() {
           return {
               isImgLoaded: false,
               isFavourite: false, // Todo::Get it from API,
-              isRatingModalVisible: false // Rating modal visibility controller
+              isRatingModalVisible: false, // Rating modal visibility controller,
+              userRating: '' // Current user rating will be updated once the user rated
           }
         },
 
@@ -107,8 +114,15 @@
 
             },
 
+            updateUserRating(rate) {
+                // Update the user rating value get from child
+                this.userRating = rate;
+            },
+
             saveUserRating() {
                 // TODO::Make an ajax requst to the server
+                // this.userRating holds the current user rating
+
                 this.isRatingModalVisible = false;
             },
 

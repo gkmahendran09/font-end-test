@@ -49,31 +49,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .hf-rating {
-        display: inline-block;
-
-        .hf-star-holder {
-            position: relative;
-            width: 16px;
-            height: 16px;
-            float: left;
-
-            .star {
-                position: absolute;
-                left: 0;
-                top: 0;
-
-                &.empty-star {
-                    z-index: 1;
-                }
-
-                &.filled-star {
-                    z-index: 2;
-                    clip-path: inset(0px 0px 0px 0px);
-                }
-            }
-        }
-    }
-</style>
