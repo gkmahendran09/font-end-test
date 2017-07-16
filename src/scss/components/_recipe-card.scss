@@ -23,38 +23,16 @@
             border-radius: 36px;
             cursor: pointer;
 
-            &.favourite {
-                .unfav-icon {
-                    display: block;
-                }
-
-                .fav-icon {
-                    display: none;
-                }
-
-            }
-
-            &:hover:not(.favourite) {
-                .unfav-icon {
-                    display: block;
-                }
-
-                .fav-icon {
-                    display: none;
+            &:hover {
+                svg {
+                    .fav-path {
+                        fill: #fff;
+                    }
                 }
             }
 
             svg {
                 position: absolute;
-
-                &.fav-icon {
-                    display: block;
-                }
-
-                &.unfav-icon {
-                    display: none;
-                }
-
             }
         }
     }
