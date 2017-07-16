@@ -6,17 +6,12 @@ body.modal--open {
 .modal-wrapper {
   .modal {
     position: fixed;
-    width: 600px;
     background: #fff;
     z-index: $modal-zindex;
     max-height: 90vh;
     overflow: auto;
 
     @include b-align-center-both-sides;
-
-    &.modal--auto-width {
-      width: auto;
-    }
 
     // modal header common style
     .modal-header {

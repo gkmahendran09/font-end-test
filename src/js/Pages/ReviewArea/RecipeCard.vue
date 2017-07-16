@@ -133,6 +133,7 @@
 
 <style lang="scss">
     .modal--user-rating {
+        width: 320px;
 
         // modal body style overrides
         .modal-body {

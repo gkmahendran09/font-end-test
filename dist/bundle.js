@@ -30273,7 +30273,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }, [_c('div', {
     staticClass: "grid"
   }, [_c('div', {
-    staticClass: "col-12"
+    staticClass: "col-md-12"
   }, [_vm._v("© HelloFresh 2017")])])])])
 }]
 render._withStripped = true
@@ -30683,6 +30683,12 @@ module.exports = function listToStyles (parentId, list) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data() {
@@ -30750,17 +30756,21 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('hf-header'), _vm._v(" "), _c('section', {
-    staticClass: "container"
+    staticClass: "page-body"
   }, [_c('div', {
-    staticClass: "grid"
+    staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "col-6 col-offset-3"
+    staticClass: "grid"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-3"
   }, [(_vm.successMessage.is) ? _c('div', {
     staticClass: "message message--success"
   }, [_vm._v(_vm._s(_vm.successMessage.message))]) : _vm._e(), _vm._v(" "), (_vm.errorMessage.is) ? _c('div', {
     staticClass: "message message--error"
-  }, [_vm._v(_vm._s(_vm.errorMessage.message))]) : _vm._e()]), _vm._v(" "), _c('div', {
-    staticClass: "col-6 col-offset-3"
+  }, [_vm._v(_vm._s(_vm.errorMessage.message))]) : _vm._e()])]), _vm._v(" "), _c('div', {
+    staticClass: "grid"
+  }, [_c('div', {
+    staticClass: "col-md-6 col-md-offset-3"
   }, [_c('form', {
     staticClass: "form form--vertical",
     attrs: {
@@ -30842,14 +30852,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "value": "Login",
       "disabled": !_vm.isValidForm && _vm.touched
     }
-  })])])])])]), _vm._v(" "), _c('hf-footer')], 1)
+  })])])])])])]), _vm._v(" "), _c('hf-footer')], 1)
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "col-12"
+    staticClass: "grid"
+  }, [_c('div', {
+    staticClass: "col-md-12"
   }, [_c('p', {
     staticClass: "lead"
-  }, [_vm._v("Register with us today to receive regular updates from the HelloFresh farm. Inspiring recipe ideas, the newest food trends and unique HelloFresh promotions are awaiting you. And, don't worry, we promise not to spam you with daily emails")])])
+  }, [_vm._v("Register with us today to receive regular updates from the HelloFresh farm. Inspiring recipe ideas, the newest food trends and unique HelloFresh promotions are awaiting you. And, don't worry, we promise not to spam you with daily emails")])])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -30990,7 +31002,6 @@ exports.push([module.i, "\n.load-more-btn-holder {\n  margin-bottom: 15px;\n}\n"
 //
 //
 //
-//
 
 
 
@@ -31007,7 +31018,7 @@ exports.push([module.i, "\n.load-more-btn-holder {\n  margin-bottom: 15px;\n}\n"
           recipe: {},
           isLoading: true,
           isLoadMore: false,
-          limit: 9,
+          limit: 18,
           pageIndex: -1,
           onLoad: true
       }
@@ -31223,7 +31234,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "\n.modal--user-rating .modal-body {\n  padding: 20px;\n  font-size: 16px;\n  font-weight: 300;\n  line-height: 1.5em;\n  color: #343434;\n  text-align: center;\n}\n.modal--user-rating .modal-body .help-text,\n  .modal--user-rating .modal-body .user-rating-holder {\n    padding-bottom: 20px;\n}\n.modal--user-rating .modal-body .user-comment-field {\n    border: solid 1px #ebebeb;\n    outline: none;\n    overflow: auto;\n    box-sizing: border-box;\n    padding: 10px;\n    font-size: 16px;\n    font-weight: 400;\n    line-height: 1.5em;\n    color: #343434;\n    opacity: 1;\n    resize: none;\n    min-width: 100%;\n    display: block;\n}\n.modal--user-rating .modal-body .user-comment-field::-webkit-input-placeholder {\n    color: #999;\n}\n.modal--user-rating .modal-footer .btn {\n  padding: 10px 50px;\n}\n", ""]);
+exports.push([module.i, "\n.modal--user-rating {\n  width: 320px;\n}\n.modal--user-rating .modal-body {\n    padding: 20px;\n    font-size: 16px;\n    font-weight: 300;\n    line-height: 1.5em;\n    color: #343434;\n    text-align: center;\n}\n.modal--user-rating .modal-body .help-text,\n    .modal--user-rating .modal-body .user-rating-holder {\n      padding-bottom: 20px;\n}\n.modal--user-rating .modal-body .user-comment-field {\n      border: solid 1px #ebebeb;\n      outline: none;\n      overflow: auto;\n      box-sizing: border-box;\n      padding: 10px;\n      font-size: 16px;\n      font-weight: 400;\n      line-height: 1.5em;\n      color: #343434;\n      opacity: 1;\n      resize: none;\n      min-width: 100%;\n      display: block;\n}\n.modal--user-rating .modal-body .user-comment-field::-webkit-input-placeholder {\n      color: #999;\n}\n.modal--user-rating .modal-footer .btn {\n    padding: 10px 50px;\n}\n", ""]);
 
 // exports
 
@@ -32396,11 +32407,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "is-logged-in": "true"
     }
   }), _vm._v(" "), _c('section', {
+    staticClass: "page-body"
+  }, [_c('div', {
     staticClass: "container"
-  }, [_c('div', {
-    staticClass: "grid"
-  }, [_c('div', {
-    staticClass: "col-12"
   }, [_c('div', {
     directives: [{
       name: "show",
@@ -32410,25 +32419,33 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }],
     staticClass: "grid"
   }, [_c('div', {
-    staticClass: "col-12"
+    staticClass: "col-md-12"
   }, [_c('p', {
     staticClass: "lead"
   }, [_vm._v(_vm._s(_vm.recipe.total) + " recipes found")])]), _vm._v(" "), _vm._l((_vm.recipe.items), function(r) {
     return _c('div', {
-      staticClass: "col-4"
+      staticClass: "col-md-4 col-sm-6"
     }, [_c('recipe-card', {
       attrs: {
         "recipe": r
       }
     })], 1)
-  }), _vm._v(" "), (_vm.isLoadMore && !_vm.isLoading) ? _c('div', {
-    staticClass: "col-12 text-center load-more-btn-holder"
+  })], 2), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.onLoad),
+      expression: "!onLoad"
+    }],
+    staticClass: "grid"
+  }, [(_vm.isLoadMore && !_vm.isLoading) ? _c('div', {
+    staticClass: "col-md-12 text-center load-more-btn-holder"
   }, [_c('button', {
     staticClass: "btn btn--primary",
     on: {
       "click": _vm.loadMore
     }
-  }, [_vm._v("LOAD MORE")])]) : _vm._e()], 2), _vm._v(" "), _c('div', {
+  }, [_vm._v("LOAD MORE")])]) : _vm._e()]), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -32438,9 +32455,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "grid"
   }, _vm._l((_vm.limit), function(n) {
     return _c('div', {
-      staticClass: "col-4"
+      staticClass: "col-md-4 col-sm-6"
     }, [_c('recipe-card-empty')], 1)
-  }))])])]), _vm._v(" "), _c('hf-footer')], 1)
+  }))])]), _vm._v(" "), _c('hf-footer')], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

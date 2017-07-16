@@ -13,7 +13,7 @@
     .recipe__fav-holder {
         top: 10px;
         right: 10px;
-        z-index: 2;
+        z-index: $card-icons-zindex;
         position: absolute;
 
         .recipe__fav-icon {
@@ -67,7 +67,7 @@
         position: absolute;
         top: 50px;
         right: 10px;
-        z-index: 2;
+        z-index: $card-icons-zindex;
         border-radius: 36px;
         cursor: pointer;
 

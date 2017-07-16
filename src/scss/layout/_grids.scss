@@ -1,68 +1,96 @@
-$pad: 15px;
+// Mobile first approach
 
+// Media query variables
+$screen-xs-max: 576px;
+$screen-sm-max: 768px;
+$screen-md-max: 992px;
+$screen-lg-max: 1200px;
+
+$gutter: 15px;
+
+
+// --------------------------------------
+// Setup Container
+// --------------------------------------
+
+/* for mobile phones */
 .container {
-  padding: 0 15px;
+  padding: 0 $gutter;
   margin: 0 auto;
-  width: 1140px;
 
-  @include large-desktop {
-    width: 960px;
-  }
-
-  @include desktop {
-    width: 720px;
-  }
-
-  @include tablet {
+  @include mobile-up { // bigger mobile or in landscape
     width: 576px;
   }
 
-  @include mobile {
-    width: 100%;
+  @include tablet-up { // tablet
+    width: 720px;
+  }
+
+  @include desktop-up { // desktop
+    width: 960px;
+  }
+
+  @include large-desktop-up { // large desktop
+    width: 1170px;
   }
 }
+
+
+// --------------------------------------
+// Setup Grid row
+// --------------------------------------
 
 .grid {
-  margin: 0 $pad 0 $pad;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
 
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+  @extend .clearfix;
 }
 
 
+// --------------------------------------
+// Setup Grid Columns and offsets
+// --------------------------------------
+
+// for mobile phones
 [class*='col-'] {
   float: left;
-  padding: 0 $pad;
+  padding: 0 $gutter;
+  width: 100%; // single col
 }
 
-// Col widths
-.col-1 { width: 8.33%; }
-.col-2 { width: 16.66%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.33%; }
-.col-5 { width: 41.66%; }
-.col-6 { width: 50%; }
-.col-7 { width: 58.33%; }
-.col-8 { width: 66.66%; }
-.col-9 { width: 75%; }
-.col-10 { width: 83.33%; }
-.col-11 { width: 91.66%; }
-.col-12 { width: 100%; }
+[class*='col-offset-'] {
+  padding-right: 0px;
+}
 
-// Col left offsets
-[class*='col-offset-'] { padding-right: 0px; }
-.col-offset-1 { margin-left: 8.33%; }
-.col-offset-2 { margin-left: 16.66%; }
-.col-offset-3 { margin-left: 25%; }
-.col-offset-4 { margin-left: 33.33%; }
-.col-offset-5 { margin-left: 41.66%; }
-.col-offset-6 { margin-left: 50%; }
-.col-offset-7 { margin-left: 58.33%; }
-.col-offset-8 { margin-left: 66.66%; }
-.col-offset-9 { margin-left: 75%; }
-.col-offset-10 { margin-left: 83.33%; }
-.col-offset-11 { margin-left: 91.66%; }
-.col-offset-12 { margin-left: 100%; }
+// bigger mobile or in landscape
+@include mobile-up {
+
+  @include col-generator('xs');
+
+  @include col-offset-generator('xs');
+}
+
+// tablet
+@include tablet-up {
+
+  @include col-generator('sm');
+
+  @include col-offset-generator('sm');
+}
+
+// desktop
+@include desktop-up {
+
+  @include col-generator('md');
+
+  @include col-offset-generator('md');
+}
+
+// large desktop
+@include large-desktop-up {
+
+  @include col-generator('lg');
+
+  @include col-offset-generator('lg');
+}

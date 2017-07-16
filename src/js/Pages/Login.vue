@@ -2,29 +2,35 @@
     <div>
         <hf-header></hf-header>
 
-        <section class="container">
-            <div class="grid">
-                <div class="col-12">
-                    <p class="lead">Register with us today to receive regular updates from the HelloFresh farm. Inspiring recipe ideas, the newest food trends and unique HelloFresh promotions are awaiting you. And, don't worry, we promise not to spam you with daily emails</p>
+        <section class="page-body">
+            <div class="container">
+                <div class="grid">
+                    <div class="col-md-12">
+                        <p class="lead">Register with us today to receive regular updates from the HelloFresh farm. Inspiring recipe ideas, the newest food trends and unique HelloFresh promotions are awaiting you. And, don't worry, we promise not to spam you with daily emails</p>
+                    </div>
                 </div>
-                <div class="col-6 col-offset-3">
-                    <div class="message message--success" v-if="successMessage.is">{{successMessage.message}}</div>
-                    <div class="message message--error" v-if="errorMessage.is">{{errorMessage.message}}</div>
+                <div class="grid">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="message message--success" v-if="successMessage.is">{{successMessage.message}}</div>
+                        <div class="message message--error" v-if="errorMessage.is">{{errorMessage.message}}</div>
+                    </div>
                 </div>
-                <div class="col-6 col-offset-3">
-                    <form method="post" class="form form--vertical" :action="actionURL" @submit="onSubmit" :onsubmit="`return ${isValidForm}`">
-                        <div class="form__element">
-                            <input type="text" placeholder="Email" v-model="email" name="username">
-                            <span class="error" v-show="!isValidEmail && touched">Please enter a valid email</span>
-                        </div>
-                        <div class="form__element">
-                            <input type="password" placeholder="Password" v-model="password" name="password">
-                            <span class="error" v-show="!isValidPassword && touched">Please enter a valid password</span>
-                        </div>
-                        <div class="form__element">
-                            <input type="submit" class="btn btn--primary" value="Login" :disabled="!isValidForm && touched">
-                        </div>
-                    </form>
+                <div class="grid">
+                    <div class="col-md-6 col-md-offset-3">
+                        <form method="post" class="form form--vertical" :action="actionURL" @submit="onSubmit" :onsubmit="`return ${isValidForm}`">
+                            <div class="form__element">
+                                <input type="text" placeholder="Email" v-model="email" name="username">
+                                <span class="error" v-show="!isValidEmail && touched">Please enter a valid email</span>
+                            </div>
+                            <div class="form__element">
+                                <input type="password" placeholder="Password" v-model="password" name="password">
+                                <span class="error" v-show="!isValidPassword && touched">Please enter a valid password</span>
+                            </div>
+                            <div class="form__element">
+                                <input type="submit" class="btn btn--primary" value="Login" :disabled="!isValidForm && touched">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

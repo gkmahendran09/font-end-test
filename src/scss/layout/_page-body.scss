@@ -1,0 +1,11 @@
+
+.page-body {
+
+}
+
+// upto tablet
+@include tablet {
+  .page-body {
+    padding-top: 105px;
+  }
+}

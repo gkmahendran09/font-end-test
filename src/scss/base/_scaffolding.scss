@@ -1,12 +1,8 @@
-// Media query variables
-$screen-xs-max: 576px;
-$screen-sm-max: 768px;
-$screen-md-max: 992px;
-$screen-lg-max: 1200px;
-
 // Z-index
-$modal-overlay-zindex: 2500;
+$modal-overlay-zindex: 250;
 $modal-zindex: 2501;
+$card-icons-zindex: 2;
+$header-fixed-zindex: 3;
 
 * {
    box-sizing: border-box;

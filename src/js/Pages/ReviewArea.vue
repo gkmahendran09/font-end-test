@@ -1,27 +1,26 @@
 <template>
     <div>
         <hf-header is-logged-in="true"></hf-header>
-        <section class="container">
-            <div class="grid">
-                <div class="col-12">
-                    <div class="grid" v-show="!onLoad">
-                        <div class="col-12">
-                            <p class="lead">{{recipe.total}} recipes found</p>
-                        </div>
-                        <div class="col-4" v-for="r in recipe.items">
-                            <recipe-card :recipe="r"></recipe-card>
-                        </div>
-                        <div class="col-12 text-center load-more-btn-holder" v-if="isLoadMore && !isLoading">
-                            <button class="btn btn--primary" @click="loadMore">LOAD MORE</button>
-                        </div>
+        <section class="page-body">
+            <div class="container">
+                <div class="grid" v-show="!onLoad">
+                    <div class="col-md-12">
+                        <p class="lead">{{recipe.total}} recipes found</p>
                     </div>
-                    <div class="grid" v-show="isLoading">
-                        <div class="col-4" v-for="n in limit">
-                            <recipe-card-empty></recipe-card-empty>
-                        </div>
+                    <div class="col-md-4 col-sm-6" v-for="r in recipe.items">
+                        <recipe-card :recipe="r"></recipe-card>
                     </div>
                 </div>
-
+                <div class="grid" v-show="!onLoad">
+                    <div class="col-md-12 text-center load-more-btn-holder" v-if="isLoadMore && !isLoading">
+                        <button class="btn btn--primary" @click="loadMore">LOAD MORE</button>
+                    </div>
+                </div>
+                <div class="grid" v-show="isLoading">
+                    <div class="col-md-4 col-sm-6" v-for="n in limit">
+                        <recipe-card-empty></recipe-card-empty>
+                    </div>
+                </div>
             </div>
         </section>
         <hf-footer></hf-footer>
@@ -43,7 +42,7 @@
               recipe: {},
               isLoading: true,
               isLoadMore: false,
-              limit: 9,
+              limit: 18,
               pageIndex: -1,
               onLoad: true
           }
