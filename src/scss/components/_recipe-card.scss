@@ -59,6 +59,34 @@
         }
     }
 
+    // Recipe rating holder
+    .recipe__rating-holder {
+        background: rgba(17,17,17,0.1);
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        z-index: 2;
+        border-radius: 36px;
+        cursor: pointer;
+
+        &:hover {
+            > svg {
+                .svg-path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        > svg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            left: 50%;
+        }
+    }
+
     // Recipe image
     .recipe__img-holder {
         position: relative;

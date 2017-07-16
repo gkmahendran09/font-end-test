@@ -422,6 +422,23 @@ p {
           display: block; }
         .recipe .recipe__fav-holder .recipe__fav-icon svg.unfav-icon {
           display: none; }
+  .recipe .recipe__rating-holder {
+    background: rgba(17, 17, 17, 0.1);
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 2;
+    border-radius: 36px;
+    cursor: pointer; }
+    .recipe .recipe__rating-holder:hover > svg .svg-path {
+      fill: #fff; }
+    .recipe .recipe__rating-holder > svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      left: 50%; }
   .recipe .recipe__img-holder {
     position: relative;
     overflow: hidden;

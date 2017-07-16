@@ -6,6 +6,9 @@
                 <svg class="unfav-icon" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill-opacity=".1" fill="#111" cx="18" cy="18" r="18"></circle><path d="M6 7h24v24H6z"></path><path d="M18 28c19.007-12.296 6.198-22.608 0-15.866C11.802 5.392-1.007 15.704 18 28z" fill="#fff"></path></g></svg>
             </div>
         </div>
+        <div class="recipe__rating-holder">
+            <svg width="24" height="24" viewBox="0 0 38 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ><path d="M19.022 29.348L7.577 35.394l2.186-12.806-9.26-9.069L13.3 11.651 19.022 0l5.723 11.65 12.796 1.87-9.26 9.068 2.186 12.806z" fill="transparent" stroke="#fff" stroke-width="3" fill-rule="evenodd" class="svg-path"></path></svg>
+        </div>
         <div class="recipe__img-holder">
             <div class="recipe__img-bg" :class="{active: !isImgLoaded}"></div>
             <img :src="recipe.imageLink" :alt="recipe.name" :class="{active: isImgLoaded}">

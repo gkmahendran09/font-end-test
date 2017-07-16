@@ -31102,6 +31102,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 // Import moment
 
@@ -31753,6 +31756,25 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "fill": "#fff"
     }
   })])])])]), _vm._v(" "), _c('div', {
+    staticClass: "recipe__rating-holder"
+  }, [_c('svg', {
+    attrs: {
+      "width": "24",
+      "height": "24",
+      "viewBox": "0 0 38 36",
+      "preserveAspectRatio": "xMidYMid meet",
+      "xmlns": "http://www.w3.org/2000/svg"
+    }
+  }, [_c('path', {
+    staticClass: "svg-path",
+    attrs: {
+      "d": "M19.022 29.348L7.577 35.394l2.186-12.806-9.26-9.069L13.3 11.651 19.022 0l5.723 11.65 12.796 1.87-9.26 9.068 2.186 12.806z",
+      "fill": "transparent",
+      "stroke": "#fff",
+      "stroke-width": "3",
+      "fill-rule": "evenodd"
+    }
+  })])]), _vm._v(" "), _c('div', {
     staticClass: "recipe__img-holder"
   }, [_c('div', {
     staticClass: "recipe__img-bg",
