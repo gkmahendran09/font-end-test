@@ -31311,8 +31311,9 @@ exports.push([module.i, "\n.modal--user-rating .modal-body {\n  padding: 20px;\n
       return {
           isImgLoaded: false,
           isFavourite: false, // Todo::Get it from API,
+          isRated: false, // Todo::Get it from API
           isRatingModalVisible: false, // Rating modal visibility controller,
-          userRating: '' // Current user rating will be updated once the user rated
+          userRating: 0 // Current user rating will be updated once the user rated
       }
     },
 
@@ -31353,16 +31354,13 @@ exports.push([module.i, "\n.modal--user-rating .modal-body {\n  padding: 20px;\n
 
         },
 
-        updateUserRating(rate) {
-            // Update the user rating value get from child
-            this.userRating = rate;
-        },
-
         saveUserRating() {
             // TODO::Make an ajax requst to the server
             // this.userRating holds the current user rating
 
             this.isRatingModalVisible = false;
+
+            this.isRated = true;
         },
 
         showRatingModal() {
@@ -31941,9 +31939,10 @@ exports.push([module.i, "\n.hf-star-holder--user-rating {\n  cursor: pointer;\n}
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 
+    props: ["currentRating"],
+
     data() {
         return {
-            currentRating: 0,
             currentElement: 0
         }
     },
@@ -31952,8 +31951,7 @@ exports.push([module.i, "\n.hf-star-holder--user-rating {\n  cursor: pointer;\n}
     methods: {
         // Emit the user rating to parent
         emit(r) {
-            this.currentRating = r;
-            this.$emit('rated', r);
+            this.$emit('update:currentRating', r);
         },
 
         checkActive(n) {
@@ -32121,6 +32119,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })])])])]), _vm._v(" "), _c('div', {
     staticClass: "recipe__rating-holder",
+    class: {
+      'active': _vm.isRated
+    },
     on: {
       "click": _vm.showRatingModal
     }
@@ -32214,8 +32215,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("Help us improve our product")]), _vm._v(" "), _c('div', {
     staticClass: "user-rating-holder"
   }, [_c('user-rating', {
+    attrs: {
+      "current-rating": _vm.userRating
+    },
     on: {
-      "rated": _vm.updateUserRating
+      "update:currentRating": function($event) {
+        _vm.userRating = $event
+      }
     }
   })], 1), _vm._v(" "), _c('textarea', {
     staticClass: "user-comment-field",
@@ -32234,7 +32240,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("Cancel")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn--primary",
     attrs: {
-      "disabled": _vm.userRating == ''
+      "disabled": _vm.userRating == 0
     },
     on: {
       "click": _vm.saveUserRating

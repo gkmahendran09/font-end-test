@@ -71,7 +71,8 @@
         border-radius: 36px;
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        &.active {
             > svg {
                 .svg-path {
                     fill: #fff;

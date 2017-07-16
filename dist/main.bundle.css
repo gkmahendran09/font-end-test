@@ -432,7 +432,7 @@ p {
     z-index: 2;
     border-radius: 36px;
     cursor: pointer; }
-    .recipe .recipe__rating-holder:hover > svg .svg-path {
+    .recipe .recipe__rating-holder:hover > svg .svg-path, .recipe .recipe__rating-holder.active > svg .svg-path {
       fill: #fff; }
     .recipe .recipe__rating-holder > svg {
       position: absolute;

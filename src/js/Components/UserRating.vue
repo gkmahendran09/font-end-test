@@ -9,9 +9,10 @@
 <script>
     export default {
 
+        props: ["currentRating"],
+
         data() {
             return {
-                currentRating: 0,
                 currentElement: 0
             }
         },
@@ -20,8 +21,7 @@
         methods: {
             // Emit the user rating to parent
             emit(r) {
-                this.currentRating = r;
-                this.$emit('rated', r);
+                this.$emit('update:currentRating', r);
             },
 
             checkActive(n) {

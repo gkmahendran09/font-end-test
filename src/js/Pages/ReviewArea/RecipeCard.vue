@@ -6,7 +6,7 @@
                 <svg class="unfav-icon" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill-opacity=".1" fill="#111" cx="18" cy="18" r="18"></circle><path d="M6 7h24v24H6z"></path><path d="M18 28c19.007-12.296 6.198-22.608 0-15.866C11.802 5.392-1.007 15.704 18 28z" fill="#fff"></path></g></svg>
             </div>
         </div>
-        <div class="recipe__rating-holder" @click="showRatingModal">
+        <div class="recipe__rating-holder" @click="showRatingModal" :class="{'active': isRated}">
             <svg width="24" height="24" viewBox="0 0 38 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" ><path d="M19.022 29.348L7.577 35.394l2.186-12.806-9.26-9.069L13.3 11.651 19.022 0l5.723 11.65 12.796 1.87-9.26 9.068 2.186 12.806z" fill="transparent" stroke="#fff" stroke-width="3" fill-rule="evenodd" class="svg-path"></path></svg>
         </div>
         <div class="recipe__img-holder">
@@ -38,13 +38,13 @@
                 <div class="modal-body">
                     <div class="help-text">Help us improve our product</div>
                     <div class="user-rating-holder">
-                        <user-rating @rated="updateUserRating"></user-rating>
+                        <user-rating :current-rating.sync="userRating"></user-rating>
                     </div>
                     <textarea placeholder="Write a comment… (optional)" class="user-comment-field"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button class="btn" @click="isRatingModalVisible = false">Cancel</button>
-                    <button class="btn btn--primary" @click="saveUserRating" :disabled="userRating==''">Save</button>
+                    <button class="btn btn--primary" @click="saveUserRating" :disabled="userRating==0">Save</button>
                 </div>
             </div>
         </hf-modal>
@@ -72,8 +72,9 @@
           return {
               isImgLoaded: false,
               isFavourite: false, // Todo::Get it from API,
+              isRated: false, // Todo::Get it from API
               isRatingModalVisible: false, // Rating modal visibility controller,
-              userRating: '' // Current user rating will be updated once the user rated
+              userRating: 0 // Current user rating will be updated once the user rated
           }
         },
 
@@ -114,16 +115,13 @@
 
             },
 
-            updateUserRating(rate) {
-                // Update the user rating value get from child
-                this.userRating = rate;
-            },
-
             saveUserRating() {
                 // TODO::Make an ajax requst to the server
                 // this.userRating holds the current user rating
 
                 this.isRatingModalVisible = false;
+
+                this.isRated = true;
             },
 
             showRatingModal() {
