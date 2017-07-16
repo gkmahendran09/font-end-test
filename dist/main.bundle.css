@@ -552,6 +552,8 @@ p {
         fill: #fff; }
       .recipe .recipe__fav-holder .recipe__fav-icon svg {
         position: absolute; }
+        .recipe .recipe__fav-holder .recipe__fav-icon svg .fav-path {
+          fill: transparent; }
   .recipe .recipe__rating-holder {
     background: rgba(17, 17, 17, 0.1);
     width: 36px;
