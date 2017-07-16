@@ -32089,7 +32089,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "d": "M12 21C31.007 8.704 18.198-1.608 12 5.134 5.802-1.608-7.007 8.704 12 21z",
       "stroke": "#fff",
       "stroke-width": "2",
-      "fill": [_vm.isFavourite ? '#fff' : '']
+      "fill": [_vm.isFavourite ? '#fff' : 'transparent']
     }
   })])])])])]), _vm._v(" "), _c('div', {
     staticClass: "recipe__rating-holder",

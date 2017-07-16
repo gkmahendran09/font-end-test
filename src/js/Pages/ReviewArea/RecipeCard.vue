@@ -2,7 +2,7 @@
     <div class="recipe">
         <div class="recipe__fav-holder">
             <div class="recipe__fav-icon" @click="markAsFavourite">
-                <svg class="fav-icon" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill-opacity=".1" fill="#111" cx="18" cy="18" r="18"></circle><g transform="translate(6 7)"><path d="M12 21C31.007 8.704 18.198-1.608 12 5.134 5.802-1.608-7.007 8.704 12 21z" stroke="#fff" stroke-width="2" :fill="[ isFavourite ? '#fff': '']" class="fav-path"></path></g></g></svg>
+                <svg class="fav-icon" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill-opacity=".1" fill="#111" cx="18" cy="18" r="18"></circle><g transform="translate(6 7)"><path d="M12 21C31.007 8.704 18.198-1.608 12 5.134 5.802-1.608-7.007 8.704 12 21z" stroke="#fff" stroke-width="2" :fill="[ isFavourite ? '#fff': 'transparent']" class="fav-path"></path></g></g></svg>
             </div>
         </div>
         <div class="recipe__rating-holder" @click="showRatingModal" :class="{'active': isRated}">
