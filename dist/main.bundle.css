@@ -493,3 +493,48 @@ p {
         .recipe .recipe__footer .recipe__glance .recipe__glance__details.recipe__glance__details--right {
           float: right;
           text-align: right; }
+
+body.modal--open {
+  overflow: hidden; }
+
+.modal-wrapper .modal {
+  position: fixed;
+  width: 600px;
+  background: #fff;
+  z-index: 2501;
+  max-height: 90vh;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); }
+  .modal-wrapper .modal.modal--auto-width {
+    width: auto; }
+  .modal-wrapper .modal .modal-header {
+    position: relative;
+    padding: 20px;
+    padding-right: calc(20px + 20px + 10px);
+    border-bottom: solid 1px #ebebeb;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.23em;
+    color: #343434; }
+    .modal-wrapper .modal .modal-header .close-icon {
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      right: 0;
+      margin-right: 20px;
+      cursor: pointer; }
+  .modal-wrapper .modal .modal-body {
+    padding: 20px; }
+  .modal-wrapper .modal .modal-footer {
+    padding: 0 20px 20px 20px; }
+
+.modal-wrapper .modal-overlay {
+  position: fixed;
+  z-index: 2500;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); }

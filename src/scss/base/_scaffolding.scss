@@ -4,6 +4,10 @@ $screen-sm-max: 768px;
 $screen-md-max: 992px;
 $screen-lg-max: 1200px;
 
+// Z-index
+$modal-overlay-zindex: 2500;
+$modal-zindex: 2501;
+
 * {
    box-sizing: border-box;
  }

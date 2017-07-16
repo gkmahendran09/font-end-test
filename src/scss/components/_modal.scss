@@ -1,0 +1,62 @@
+// Update body overflow property on modal open
+body.modal--open {
+  overflow: hidden;
+}
+
+.modal-wrapper {
+  .modal {
+    position: fixed;
+    width: 600px;
+    background: #fff;
+    z-index: $modal-zindex;
+    max-height: 90vh;
+    overflow: auto;
+
+    @include b-align-center-both-sides;
+
+    &.modal--auto-width {
+      width: auto;
+    }
+
+    // modal header common style
+    .modal-header {
+      position: relative;
+      padding: 20px;
+      padding-right: calc(20px + 20px + 10px);
+      border-bottom: solid 1px #ebebeb;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.23em;
+      color: #343434;
+
+      .close-icon {
+        @include b-align-vertical;
+
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+    }
+
+    // modal body common style
+    .modal-body {
+      padding: 20px;
+    }
+
+    // modal footer common style
+    .modal-footer {
+      padding: 0 20px 20px 20px;
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    z-index: $modal-overlay-zindex;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+  }
+}

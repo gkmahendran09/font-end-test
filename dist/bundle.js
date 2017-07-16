@@ -16921,6 +16921,7 @@ var vm = new Vue({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Components_Header_vue__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Components_Footer_vue__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Components_Modal_vue__ = __webpack_require__(187);
 // Importing Vue
 
 
@@ -16954,6 +16955,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('hf-header', __WE
 // Footer Component
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('hf-footer', __WEBPACK_IMPORTED_MODULE_4__Components_Footer_vue__["a" /* default */]);
+
+// Modal Component
+
+__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('hf-modal', __WEBPACK_IMPORTED_MODULE_5__Components_Modal_vue__["a" /* default */]);
 
 /***/ }),
 /* 130 */
@@ -31023,13 +31028,17 @@ let auth = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_RecipeCard_vue__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_c6a697fc_node_modules_vue_loader_lib_selector_type_template_index_0_RecipeCard_vue__ = __webpack_require__(180);
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(192)
+}
 var normalizeComponent = __webpack_require__(2)
 /* script */
 
 /* template */
 
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -31105,6 +31114,23 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // Import moment
 
@@ -31122,7 +31148,8 @@ if (false) {(function () {
     data() {
       return {
           isImgLoaded: false,
-          isFavourite: false // Todo::Get it from API
+          isFavourite: false, // Todo::Get it from API,
+          isRatingModalVisible: false // Rating modal visibility controller
       }
     },
 
@@ -31161,6 +31188,15 @@ if (false) {(function () {
             // TODO::Make an ajax requst to the server
             this.isFavourite = !this.isFavourite;
 
+        },
+
+        saveUserRating() {
+            // TODO::Make an ajax requst to the server
+            this.isRatingModalVisible = false;
+        },
+
+        showRatingModal() {
+            this.isRatingModalVisible = true;
         }
     }
 });
@@ -31756,7 +31792,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "fill": "#fff"
     }
   })])])])]), _vm._v(" "), _c('div', {
-    staticClass: "recipe__rating-holder"
+    staticClass: "recipe__rating-holder",
+    on: {
+      "click": _vm.showRatingModal
+    }
   }, [_c('svg', {
     attrs: {
       "width": "24",
@@ -31807,7 +31846,65 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "rating": _vm.recipe.averageRating
     }
-  })], 1)])])])
+  })], 1)])]), _vm._v(" "), _c('hf-modal', {
+    attrs: {
+      "show": _vm.isRatingModalVisible
+    },
+    on: {
+      "update:show": function($event) {
+        _vm.isRatingModalVisible = $event
+      }
+    }
+  }, [_c('div', {
+    staticClass: "modal modal--auto-width modal--user-rating"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_c('span', [_vm._v("Rate recipe")]), _vm._v(" "), _c('svg', {
+    staticClass: "close-icon",
+    attrs: {
+      "width": "14",
+      "height": "14",
+      "viewBox": "0 0 19 20",
+      "preserveAspectRatio": "xMidYMid meet",
+      "xmlns": "http://www.w3.org/2000/svg"
+    },
+    on: {
+      "click": function($event) {
+        _vm.isRatingModalVisible = false
+      }
+    }
+  }, [_c('path', {
+    attrs: {
+      "d": "M11.414 9.255l7.364-7.363A1 1 0 1 0 17.364.478L10 7.84 2.637.477a1 1 0 1 0-1.414 1.414l7.363 7.364-7.364 7.363a1 1 0 1 0 1.414 1.414L10 10.67l7.363 7.364a1 1 0 1 0 1.414-1.414l-7.363-7.364z",
+      "fill": "#343434",
+      "fill-rule": "evenodd"
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('div', {
+    staticClass: "help-text"
+  }, [_vm._v("Help us improve our product")]), _vm._v(" "), _c('div', {
+    staticClass: "user-rating-holder"
+  }, [_vm._v("rating")]), _vm._v(" "), _c('textarea', {
+    staticClass: "user-comment-field",
+    attrs: {
+      "placeholder": "Write a comment… (optional)"
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_c('button', {
+    staticClass: "btn",
+    on: {
+      "click": function($event) {
+        _vm.isRatingModalVisible = false
+      }
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn--primary",
+    on: {
+      "click": _vm.saveUserRating
+    }
+  }, [_vm._v("Save")])])])])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32020,6 +32117,163 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 187 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_Modal_vue__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6fca89c2_node_modules_vue_loader_lib_selector_type_template_index_0_Modal_vue__ = __webpack_require__(188);
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_Modal_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6fca89c2_node_modules_vue_loader_lib_selector_type_template_index_0_Modal_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/js/Components/Modal.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6fca89c2", Component.options)
+  } else {
+    hotAPI.reload("data-v-6fca89c2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 188 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return (_vm.show) ? _c('div', {
+    staticClass: "modal-wrapper"
+  }, [_vm._t("default"), _vm._v(" "), _c('div', {
+    staticClass: "modal-overlay",
+    on: {
+      "click": _vm.closeModal
+    }
+  })], 2) : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-6fca89c2", esExports)
+  }
+}
+
+/***/ }),
+/* 189 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    props: ["show"],
+
+    watch: {
+      show() {
+          let b = document.getElementsByTagName('body')[0];
+
+          if(this.show)
+              b.classList.add('modal--open');
+          else
+              b.classList.remove('modal--open');
+      }
+    },
+
+    data() {
+        return {
+        }
+    },
+
+    methods: {
+        closeModal() {
+            this.$emit("update:show", false)
+        }
+    }
+});
+
+
+/***/ }),
+/* 190 */,
+/* 191 */,
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(193);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("0f77b80f", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c6a697fc\",\"scoped\":false,\"hasInlineConfig\":false}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeCard.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c6a697fc\",\"scoped\":false,\"hasInlineConfig\":false}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeCard.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal--user-rating .modal-body {\n  padding: 20px;\n  font-size: 16px;\n  font-weight: 300;\n  line-height: 1.5em;\n  color: #343434;\n  text-align: center;\n}\n.modal--user-rating .modal-body .help-text,\n  .modal--user-rating .modal-body .user-rating-holder {\n    padding-bottom: 20px;\n}\n.modal--user-rating .modal-body .user-comment-field {\n    border: solid 1px #ebebeb;\n    outline: none;\n    overflow: auto;\n    box-sizing: border-box;\n    padding: 10px;\n    font-size: 16px;\n    font-weight: 400;\n    line-height: 1.5em;\n    color: #343434;\n    opacity: 1;\n    resize: none;\n    min-width: 100%;\n    display: block;\n}\n.modal--user-rating .modal-body .user-comment-field::-webkit-input-placeholder {\n    color: #999;\n}\n.modal--user-rating .modal-footer .btn {\n  padding: 10px 50px;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

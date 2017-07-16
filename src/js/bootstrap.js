@@ -31,3 +31,7 @@ Vue.component('hf-header', Header);
 // Footer Component
 import Footer from './Components/Footer.vue';
 Vue.component('hf-footer', Footer);
+
+// Modal Component
+import Modal from './Components/Modal.vue';
+Vue.component('hf-modal', Modal);
