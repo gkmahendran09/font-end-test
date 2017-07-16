@@ -61,7 +61,7 @@
                   }
               };
 
-              let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&offset=${this.offset}&limit=${this.limit}&cuisine=italian&order=rating`;
+              let url = `https://gw.hellofresh.com/api/recipes/search?country=us&locale=en-US&offset=${this.offset}&limit=${this.limit}&cuisine=italian&order=-rating`;
                 obj.url = url;
 
               return obj;

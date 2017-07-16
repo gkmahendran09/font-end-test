@@ -21,7 +21,7 @@
                     </p>
                 </div>
                 <div class="recipe__glance__details recipe__glance__details--right">
-                    rating
+                    <rating :rating="recipe.averageRating"></rating>
                 </div>
             </div>
         </div>
@@ -32,8 +32,15 @@
     // Import moment
     import moment from 'moment';
 
+    // Import Rating Component
+    import Rating from '../../Components/Rating.vue';
+
     export default {
         props: ['recipe'],
+
+        components: {
+          'rating': Rating
+        },
 
         data() {
           return {
