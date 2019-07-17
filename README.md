@@ -1,4 +1,4 @@
-HelloFresh Dev Team - Front-end Developer Test
+Front-end Developer Test
 =============================================
 
 Hi,
